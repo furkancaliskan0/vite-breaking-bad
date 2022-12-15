@@ -17,27 +17,21 @@ import {store} from '../store.js'
 
 <template>
   <main>
-        <section id="card-container">
-            <div class="card" v-for="character in store.characterList" 
-            :key="character.id">
-            <Card :info="character"/>
-            </div>
-      
+        <section class="card">
+            <Card v-for="character in store.characterList" :info="character"/>
         </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
-    #card-container{
+    .card{
         margin: auto;
         width:100%;
         background: yellow;
         display: flex;
         justify-content:center;
         flex-wrap: wrap;
-        .card{
-            text-align: center;
-            margin: 10px;
-        }
+        text-align: center;
+        margin: 10px;
     }
 </style>
