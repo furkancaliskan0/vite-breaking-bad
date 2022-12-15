@@ -1,7 +1,7 @@
 <script >
    export default{
         name:"Card",
-        props:["info"],
+        props: ["info"],
        
    }
 </script>
@@ -16,13 +16,17 @@
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables" as*;
         h4{
             margin: 15px 0;
             text-align: center;
+            color: $main-color;
         }
 
         img {
-            border-radius: 50%;
+            margin: 10px 15px;
+            padding: 10px 10px 10px;
+
         }
 
 </style>

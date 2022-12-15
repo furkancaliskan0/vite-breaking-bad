@@ -6,13 +6,19 @@ import { store } from './store.js';
 export default{
   data() {
     return {
-      store,
+      store
     }
   },
   methods:{
-    getCharacter(){
+    getCharacters(){
+
+      let myUrl = store.apiUrl;
+      
+      if (store.searchStatus === "alive" || store.searchStatus === "dead" || store.searchStatus === "unknown") {
+        myUrl += `?${store.apiStatus}=${store.searchStatus}`
+      }
       axios
-      .get(store.apiUrl)
+      .get(myUrl)
       .then(res =>{
         store.characterList = res.data.results;
       })
@@ -26,23 +32,29 @@ export default{
   },
   components: {
     AppHeader,
-    AppMain,
+    AppMain
     
     
   },
   mounted() {
-        this.getCharacter();
+        this.getCharacters();
       }
 }
 </script>
 
 <template>
   
-  <AppHeader />
-  <AppMain/>
+  <AppHeader/>
+    <AppMain @search="getCharacters"/>
+ 
 </template>
 
 
 <style lang="scss">
+@use "./styles/partials/variables" as*;
+
+body{
+  background: $bg-dark-blue;
+}
 
 </style>
