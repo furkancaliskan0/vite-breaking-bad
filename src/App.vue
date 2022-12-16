@@ -14,8 +14,8 @@ export default{
 
       let myUrl = store.apiUrl;
       
-      if (store.searchStatus === "alive" || store.searchStatus === "dead" || store.searchStatus === "unknown") {
-        myUrl += `?${store.apiStatus}=${store.searchStatus}`
+      if (store.searchStatus !== "") {
+        myUrl += `?${store.apiStatus}=${store.searchStatus}`;
       }
       axios
       .get(myUrl)

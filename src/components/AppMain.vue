@@ -16,7 +16,7 @@ import {store} from '../store.js'
 
 <template>
   <main>
-    <select class="category" id="category" v-model="store.searchStatus" @click="$emit('search')">
+    <select class="category" id="category" v-model="store.searchStatus" @change="$emit('search')">
                 <option value="choice">Select Category</option>
                 <option value="alive">Alive</option>
                 <option value="dead">Dead</option>
@@ -53,5 +53,9 @@ import {store} from '../store.js'
         margin: 10px;
         font-weight: bolder;
         background-color: $main-color;
+    }
+    .category{
+        color: $bg-dark-blue;
+
     }
 </style>
